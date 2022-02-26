@@ -6,7 +6,7 @@ import { ContactsComponent } from './components/usercomponents/contacts/contacts
 import { UsersComponent } from './components/usercomponents/users/users.component';
 import { AuthGuard } from './services/guard/auth.guard';
 const routes: Routes = [
-  {path:'', component:UsersComponent, pathMatch:'full'},
+  {path:'',  redirectTo:'/user', pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'user', component:UsersComponent, canActivate:[AuthGuard] },

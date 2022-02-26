@@ -1,76 +1,85 @@
-<!-- <button (click)="getContact()" >Get list</button> -->
-<table class="table mt-3">
-    <thead>
-      <th>My contacts</th>
+<mat-toolbar>
+  <h1>Contacts</h1>
+  <button mat-button color="primary" (click)="open(mymodal)">Add New Contact</button>
+  <button mat-button color="primary">Import New Contact</button>
+</mat-toolbar>
+
+
+
+<div class="container">
+  <div class="text-box">
+    <a routerLink="contacts" class="btn btn-white btn-animate"><mat-icon  (click)="open(mymodal)" class="add">add</mat-icon></a>
+  </div>
+  <table class="table table-bordered  mt-5 pt-2 ">
+    <thead >
+     
       <tr>
         <!-- <th scope="col">User ID</th> -->
+        <th scope="col">Id</th>
         <th scope="col">Full Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email ID</th>
         <th scope="col">Company</th>
+        <th scope="col">Action</th>
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor=" let con of contacts ">
-        <!-- <td> {{con.user_id}} </td>     -->
-        <!-- <mat-form-field appearance="outline" [hidden]="true">
-                  <mat-label>First Name</mat-label>
-                  <input matInput placeholder="First Name" required value="{{ con.user_id}} " disabled >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                </mat-form-field> -->
+      <tr *ngFor=" let con of contacts | paginate:{itemsPerPage:5, currentPage: page, totalItems:totalLength}  ">
+        <td> {{con.id}} </td>
         <td> {{con.firstname}} </td>
         <td> {{con.lastname}} </td>
         <td> {{con.email}} </td>
         <td> {{con.company}} </td>
-  
+        <td>
+          <button mat-raised-button color="primary" (click)="open(mymodal)" (click)="onEdit()" >Edit</button>
+          <button mat-raised-button color="warn"  class="spacer" >Delete</button>
+      </td>
       </tr>
     </tbody>
   </table>
   
-  
-  <button mat-raised-button color="primary" (click)="open(mymodal)">Add New Contact</button>
-  <ng-template #mymodal let-modal>
-    <div class="modal-header">
-      <h3 class="modal-title" id="modal-basic-title">Add New Employee</h3>
-      <button mat-raised-button color="primary" type="button" class="close" aria-label="Close"
-        (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">×</span>
-      </button>
+  <span><p class="text-center" >1-5 0f 20</p><pagination-controls class="text-center"  (pageChange)="page=$event" ></pagination-controls></span>
+</div>
+
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title" class="text-center" >Add New Contact </h3>
+    <button class="btn btn-warn" type="button" class="close" aria-label="Close"
+      (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="addContact()">
+    <mat-form-field appearance="outline" [hidden]="true">
+      <mat-label>User_id</mat-label>
+      <input matInput formControlName="user_id" name="user_id" placeholder="User_id" value="{{userId}}">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstname" matInput placeholder="First Name">
+      <mat-error *ngIf="firstname && firstname.invalid && firstname.touched">Enter first name</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastname" matInput placeholder="Last Name">
+      <mat-error *ngIf="lastname && lastname.invalid && lastname.touched">Enter last name</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Company</mat-label>
+      <input matInput formControlName="company" matInput placeholder="Company Name">
+      <mat-error *ngIf="company && company.invalid && company.touched">Enter valid company name</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter email</mat-label>
+      <input matInput formControlName="email" matInput placeholder="pat@example.com">
+      <mat-error *ngIf="email && email.invalid && email.touched">Not a valid Email id</mat-error>
+    </mat-form-field>
+
+    <div class="modal-footer">
+      <button mat-raised-button color="primary" (click)="modal.close('Save click')">Save</button>
     </div>
-    <form [formGroup]="contactForm" (ngSubmit)="addContact()">
-      <mat-form-field appearance="outline" [hidden]="true">
-        <mat-label>User_id</mat-label>
-        <input matInput formControlName="user_id" name="user_id" placeholder="User_id"  value="{{userId}}">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstname" matInput placeholder="First Name"  >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-error *ngIf="firstname && firstname.invalid && firstname.touched">Enter first name</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-          <mat-label>Last Name</mat-label>
-          <input matInput formControlName="lastname" matInput placeholder="Last Name"  >
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-error *ngIf="lastname && lastname.invalid && lastname.touched">Enter last name</mat-error>
-        </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Company</mat-label>
-        <input matInput formControlName="company" matInput placeholder="Company Name"  >
-        <mat-error *ngIf="company && company.invalid && company.touched">Enter valid company name</mat-error>
-        <mat-icon matSuffix>phone</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter email</mat-label>
-        <input matInput formControlName="email" matInput placeholder="pat@example.com"  >
-        <mat-icon matSuffix>email</mat-icon>
-        <mat-error *ngIf="email && email.invalid && email.touched">Not a valid Email id</mat-error>
-      </mat-form-field>
-  
-      <div class="modal-footer">
-        <button mat-raised-button color="primary" (click)="modal.close('Save click')">Save</button>
-      </div>
-    </form>
-  </ng-template>
-  
+  </form>
+</ng-template>

@@ -1,3 +1,4 @@
+<div class="background">
 <div class="bootstrap-wrapper">
     <div class="container mt ">
       <div class="row">
@@ -17,25 +18,21 @@
                 <mat-form-field appearance="outline">
                   <mat-label>Full Name</mat-label>
                   <input formControlName="name" matInput placeholder="Enter your name" required>
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                   <mat-error>Please enter valid name</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Phone number</mat-label>
                   <input formControlName="mobile" matInput placeholder="12 digit with country code" required>
                   <mat-error>Enter valid number</mat-error>
-                  <mat-icon matSuffix>phone</mat-icon>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Company Name</mat-label>
                   <input formControlName="company" matInput placeholder="Enter company name" >
-                  <mat-icon matSuffix>phone</mat-icon>
                    <mat-error >Company name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>Enter your email</mat-label>
                   <input formControlName="email" matInput placeholder="pat@example.com" >
-                  <mat-icon matSuffix>email</mat-icon>
                   <mat-error >Not a valid Email id</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
@@ -48,7 +45,7 @@
                    
                   </button>
                 </mat-form-field> <br>
-                <button  mat-raised-button color="warn" class="register" >Register</button><br>
+                <button  mat-raised-button color="primary" class="register " >Register</button><br>
                 <a  routerLink="/login" mat-button color="primary">Registered? Login</a>
                </form>
               <div class="alert alert-success" *ngIf="isSuccessful">
@@ -60,4 +57,4 @@
       </div>
     </div>
   </div>
-  
+</div>

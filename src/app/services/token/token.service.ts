@@ -57,6 +57,7 @@ export class TokenService {
   // User state based on valid token
   isLoggedIn() {
     return this.isValidToken();
+    this.router.navigate(['user']);
   }
 
   // Remove token

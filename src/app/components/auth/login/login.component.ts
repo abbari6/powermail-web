@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   hide = true;
   errors = null;
   userId = null;
+  isSignedIn: boolean;
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -21,7 +23,11 @@ export class LoginComponent implements OnInit {
     private authState: AuthStateService
    ) { }
   ngOnInit(): void {
-    
+    this.authState.userAuthState.subscribe(
+      val=>{
+        this.isSignedIn = val;
+      }
+    )
   }
   //login user
   loginUser() {

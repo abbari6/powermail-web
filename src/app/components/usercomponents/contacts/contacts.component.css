@@ -1,0 +1,123 @@
+
+.mat-form-field {
+    font-size: inherit;
+    padding: 11px;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+}
+.modal-header h3{
+    font-weight: bold;
+}
+table.table th, table.table td {
+    padding-top: 1.1rem;
+    padding-bottom: 1rem;
+    font-size: 18px;
+    font-family: 'Poppins';
+}
+mat-toolbar h1{
+    color: #395cbf;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 47px;
+    font-family: inherit;
+}
+
+
+
+
+.text-box {
+  float: right;
+  margin-top: 478px;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+    padding: 0px 31px;
+    padding-left: 0px;
+    padding-right: 41px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: red;
+}
+
+.btn-white {
+    background-color: rgb(238, 27, 27);
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: rgb(221, 138, 138);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.add {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 25px;
+    width: 24px;
+    font-size: 65px;
+    color: red;
+}
+.spacer{
+    margin-left: 8px;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    
+    height: 37px;
+}

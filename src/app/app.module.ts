@@ -17,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from './services/guard/auth.guard';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ContactsComponent } from './components/usercomponents/contacts/contacts.component';
-
+import { FooterComponent } from './components/usercomponents/footer/footer.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { ContactsComponent } from './components/usercomponents/contacts/contacts
     UsersComponent,
     UserNavbarComponent,
     ConfirmationComponent,
-    ContactsComponent
+    ContactsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { ContactsComponent } from './components/usercomponents/contacts/contacts
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [AuthGuard,{
     provide: HTTP_INTERCEPTORS,

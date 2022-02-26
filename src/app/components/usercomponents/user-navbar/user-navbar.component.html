@@ -1,37 +1,19 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="isSignedIn">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <button align="end" mat-raised-button color="primary" (click)="signOut()" >Log out</button>
-        </li>
-      </ul>
-    </div>
-  </nav> -->
-  <mat-toolbar  *ngIf="isSignedIn" color="primary" >
-  
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-      
-    </button>
+
+  <mat-toolbar color="primary" *ngIf="isSignedIn">
+    <span class="logo" >Powermail-Web</span>
    
-    <button align="end" mat-raised-button color="warn" (click)="signOut()" >Log out</button>
+      <a mat-button routerLink="/user"   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Dashboard</a>
+      <a mat-button routerLink="contacts" routerLinkActive="active">Contact</a>
+      <a mat-button routerLinkActive="active">Accounts</a>
+      <a mat-button routerLinkActive="active">Settings</a>
+      <div class="spacer"></div>
+      <a mat-button [matMenuTriggerFor]="userMenu" >
+        <mat-icon>account_circle</mat-icon>{{UserProfile?.name}}
+      </a>
+    </mat-toolbar>
 
     
-  
-  </mat-toolbar>
-  
+    <mat-menu #userMenu="matMenu" >
+      <button mat-menu-item > profile </button>
+      <button mat-menu-item (click)="signOut()" > logout </button>
+    </mat-menu>

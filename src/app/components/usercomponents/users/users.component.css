@@ -1,15 +1,17 @@
 .user{
     background-color: white;
-    width: 100%;
-    height: 100%;
+      
 }
 
 .details{
     margin-top: 60px;
-    font-size: 30px;
-    font-family: bold;
+   
 }
-.details h1 h2{
-   font-size: 30px;
-    font-family: bold;
+.details {
+  padding: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.details p {
+    font-size: 25px;
+    line-height: normal;
 }
