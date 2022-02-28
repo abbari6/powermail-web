@@ -1,5 +1,5 @@
 .foot{
-    position:absolute;
+    position:fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -8,5 +8,6 @@
 footer.page-footer .footer-copyright {
     overflow: hidden;
     /* color: rgba(255,255,255,0.6); */
-    background-color: #f13f3f;
+    background-color: #f02c2c;
+   
 }

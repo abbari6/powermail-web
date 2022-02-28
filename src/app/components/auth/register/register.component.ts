@@ -17,6 +17,7 @@ export class RegisterComponent {
     company: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.minLength(8)),
+    signup_mod: new FormControl('web')
   })
 
 constructor(private router: Router, private auth: AuthService) { }
@@ -24,6 +25,8 @@ constructor(private router: Router, private auth: AuthService) { }
   isSignUpFailed = false;
   errors = null;
   registerUser() {
+    console.log(this.registerForm.value);
+    
     this.auth.register(this.registerForm.value).subscribe({
       next: res => {
         console.log(res);

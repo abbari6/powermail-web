@@ -5,31 +5,30 @@
 
 .mat-toolbar{
     /* background-color: cornflowerblue; */
-    background-color:#f17070;
+    background-color:#f13636;
     color: white;
-    padding: 43px;
+    /* padding: 3px; */
   }
-  .mat-toolbar a {
-    font-size: 19px;
+  /* .mat-toolbar a {
+    font-size: 14px;
     font-family: inherit;
     margin-left: 14px;
     padding: 7px;
-  }
-  .logo{
+  } */
+  /* .logo{
     font-size: 25px;
     flex: 0.02 0.02 auto;
     font-weight: bold;
     font-family: monospace;
-  }
-  .mat-button{
+  } */
+  /* .mat-button{
      color: white;
-  }
-  .spacer{
+  } */
+  /* .spacer{
     flex: 0.97 1 auto;
-  }
+  } */
  .active:hover , .active:focus , .active{
-   /* background: rgb(94, 106, 122);
-   background-position-x: right; */
-   border-bottom: 4px solid white
+   
+   border-bottom: 2px solid white
  }
  

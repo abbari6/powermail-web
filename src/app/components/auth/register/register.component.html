@@ -15,12 +15,23 @@
               <div *ngIf="errors?.password" class="alert alert-danger mt-3">
                   {{ errors?.password }}
               </div>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline"  [hidden]="true" >
+                  <mat-label>Full Name</mat-label>
+                  <input formControlName="signup_mod" matInput  required>
+                  <mat-error>Please enter valid name</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline"  >
                   <mat-label>Full Name</mat-label>
                   <input formControlName="name" matInput placeholder="Enter your name" required>
                   <mat-error>Please enter valid name</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
+                  <mat-label>Enter your email</mat-label>
+                  <input formControlName="email" matInput placeholder="pat@example.com" >
+                  <mat-error >Not a valid Email id</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  
                   <mat-label>Phone number</mat-label>
                   <input formControlName="mobile" matInput placeholder="12 digit with country code" required>
                   <mat-error>Enter valid number</mat-error>
@@ -30,11 +41,7 @@
                   <input formControlName="company" matInput placeholder="Enter company name" >
                    <mat-error >Company name is required</mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline">
-                  <mat-label>Enter your email</mat-label>
-                  <input formControlName="email" matInput placeholder="pat@example.com" >
-                  <mat-error >Not a valid Email id</mat-error>
-                </mat-form-field>
+              
                 <mat-form-field appearance="outline">
                   <mat-label>Enter your password</mat-label>
                   <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
@@ -45,10 +52,11 @@
                    
                   </button>
                 </mat-form-field> <br>
+                <input type="hidden" value="web" name="signup_mode"/>
                 <button  mat-raised-button color="primary" class="register " >Register</button><br>
                 <a  routerLink="/login" mat-button color="primary">Registered? Login</a>
                </form>
-              <div class="alert alert-success" *ngIf="isSuccessful">
+              <div class="alert alert-success confirmation " *ngIf="isSuccessful">
                 Your registration is successful! Kindly varify your email 
               </div>
           </mat-card>

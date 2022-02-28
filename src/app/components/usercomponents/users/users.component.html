@@ -1,5 +1,22 @@
 
+ <!-- <mat-toolbar color="primary">
+    <span class="logo" >Powermail-Web</span>
+   
+      <a mat-button routerLink="/user"   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Dashboard</a>
+      <a mat-button routerLink="/contacts" routerLinkActive="active">Contact</a>
+      <a mat-button routerLinkActive="active">Accounts</a>
+      <a mat-button routerLinkActive="active">Settings</a>
+      <div class="spacer"></div>
+      <a mat-button [matMenuTriggerFor]="userMenu" >
+        <mat-icon>account_circle</mat-icon>{{UserProfile?.name}}
+      </a>
+    </mat-toolbar>
 
+    
+    <mat-menu #userMenu="matMenu" >
+      <button mat-menu-item > profile </button>
+      <button mat-menu-item (click)="signOut()" > logout </button>
+    </mat-menu> -->
 
 <div class="user">
 <div class="bootstrap-wrapper ">

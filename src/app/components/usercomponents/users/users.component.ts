@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthStateService } from 'src/app/services/state/auth-state.service';
+import { TokenService } from 'src/app/services/token/token.service';
 export class User {
   name: String;
   email: String;
@@ -13,7 +16,9 @@ export class User {
 })
 export class UsersComponent implements OnInit {
   UserProfile: User;
-  constructor(    private auth: AuthService
+  constructor(    private auth: AuthService , private authState: AuthStateService, 
+    private token: TokenService,
+    private router: Router
     ) { }
 
     
@@ -26,4 +31,10 @@ profileUser(){
     this.UserProfile = data;
   })
 }
+// signOut() {
+//   this.authState.setAuthState(false);
+//   this.token.removeToken();
+//   this.router.navigate(['login']);
+
+// }
 }

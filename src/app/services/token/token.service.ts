@@ -15,9 +15,7 @@ export class TokenService {
   constructor(
     private router: Router
 
-  ) {
-    console.log(this.getUserid())
-  }
+  ) { }
 
   handleUserid(userId) {
     localStorage.setItem('userid', userId);
@@ -57,7 +55,6 @@ export class TokenService {
   // User state based on valid token
   isLoggedIn() {
     return this.isValidToken();
-    this.router.navigate(['user']);
   }
 
   // Remove token

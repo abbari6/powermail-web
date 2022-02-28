@@ -8,7 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDividerModule} from '@angular/material/divider';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -19,7 +20,9 @@ const MaterialComponents = [
     MatInputModule,
     MatGridListModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    FlexLayoutModule,
+    MatDividerModule
 ];
 
 @NgModule({
